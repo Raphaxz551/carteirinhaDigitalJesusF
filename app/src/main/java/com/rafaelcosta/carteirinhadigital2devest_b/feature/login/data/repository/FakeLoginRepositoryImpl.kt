@@ -3,27 +3,27 @@ package com.rafaelcosta.carteirinhadigital2devest_b.feature.login.data.repositor
 import com.rafaelcosta.carteirinhadigital2devest_b.feature.login.domain.model.UsuarioLogado
 import kotlinx.coroutines.delay
 
-class FakeLoginRepositoryImpl : LoginRepository {
+class FakeAuthRepository : LoginRepository {
+    override suspend fun login(
+        login: String,
+        senha: String
+    ): Result<UsuarioLogado> {
 
-    override suspend fun login(usuario: String, senha: String)
-    : Result<UsuarioLogado> {
         delay(1500)
-        return if(usuario.equals("aluno") && senha.equals("123")){
+
+        return if (login.equals("aluno", ignoreCase = true) && senha == "123") {
             Result.success(
                 UsuarioLogado(
-                    id="1",
+                    id = "1",
                     nome = "Rafael Costa",
-                    curso = "Desenvolvimento de Sistema",
-                    turma = "2DEVEST-B",
+                    matricula = "2026000001",
+                    curso = "Desenvolvimento de Sistemas",
+                    turma = "2DEVEST-A",
                     token = "token-fake-para-aula"
                 )
             )
-        }else{
-            Result.failure(
-                IllegalArgumentException(
-                        "Login ou senha inválidos"
-                )
-            )
+        } else {
+            Result.failure(IllegalArgumentException("Login ou senha inválidos"))
         }
     }
 }

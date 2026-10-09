@@ -30,23 +30,27 @@ import com.rafaelcosta.carteirinhadigital2devest_b.feature.unidadecurriculares.p
 @Composable
 fun UnidadeCurricularScreen(
     modifier: Modifier = Modifier,
-    viewModel: UnidadeCurricularViewModel = viewModel()
+    viewModel: UnidadeCurricularViewModel
 ) {
+
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val errorMessage = uiState.errorMessage
 
-    LaunchedEffect(Unit) { viewModel.carregar() }
+    LaunchedEffect(Unit) {
+        viewModel.carregar()
+    }
 
-    when{
-        uiState.isLoading ->{
+    when {
+        uiState.isLoading -> {
             Box(
-                modifier =modifier.fillMaxSize(),
+                modifier = modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
-            ){
+            ) {
                 CircularProgressIndicator()
             }
         }
-        errorMessage != null ->{
+
+        errorMessage != null -> {
             Column(
                 modifier = modifier
                     .fillMaxSize()
@@ -59,43 +63,46 @@ fun UnidadeCurricularScreen(
                     color = MaterialTheme.colorScheme.error
                 )
                 Button(
-                    modifier = Modifier.padding(16.dp),
-                    onClick = { viewModel.carregar()}
+                    modifier = Modifier
+                        .padding(top = 16.dp),
+                    onClick = {
+                        viewModel.carregar()
+                    }
                 ) {
-                    Text(text = "Tente Novamente")
+                    Text("Tentar novamente")
                 }
             }
         }
-        uiState.listaUnidadesCurriculares.isEmpty() ->{
+
+        uiState.unidades.isEmpty() -> {
             Box(
-                modifier =modifier.fillMaxSize(),
+                modifier = modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
-            ){
-                Text(text = "Nenhuma unidade curricular encontrada.")
+            ) {
+                Text("Nenhuma unidade curricular encontrada.")
             }
         }
+
         else -> {
-            LazyColumn(
-                modifier = Modifier
+            LazyColumn (
+                modifier = modifier
                     .fillMaxSize()
                     .padding(
                         horizontal = 16.dp,
                         vertical = 12.dp
                     ),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
+                verticalArrangement = Arrangement
+                    .spacedBy(12.dp)
             ) {
-                items(uiState.listaUnidadesCurriculares) { unidadeCurricular ->
-                    UnidadeCurricularCard(unidadeCurricular = unidadeCurricular)
+                items(
+                    items = uiState.unidades,
+                    key = { it.id }
+                ) { unidadeCurricular ->
+                    UnidadeCurricularCard(
+                        unidadeCurricular = unidadeCurricular
+                    )
                 }
             }
         }
     }
-}
-@Preview(
-    showBackground = true,
-    showSystemUi = true
-)
-@Composable
-fun UnidadeCurricularScreenPreview() {
-    UnidadeCurricularScreen()
 }

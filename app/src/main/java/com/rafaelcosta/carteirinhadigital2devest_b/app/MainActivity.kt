@@ -25,6 +25,7 @@ import com.rafaelcosta.carteirinhadigital2devest_b.feature.carteirinha.presetant
 import com.rafaelcosta.myapplication.QrCode
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

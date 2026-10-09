@@ -1,28 +1,19 @@
 package com.rafaelcosta.carteirinhadigital2devest_b.core.auth
 
-interface AuthTokenStore {
-
-    fun getToken(): String?
-
-    fun setToken(token: String)
-
-    fun clearToken()
-}
-
-class InMemoryAuthTokenStore : AuthTokenStore {
+class SessionTokenStore {
 
     @Volatile
     private var token: String? = null
 
-    override fun getToken(): String? {
-        return token
-    }
-
-    override fun setToken(token: String) {
+    fun salvar(token: String) {
         this.token = token
     }
 
-    override fun clearToken() {
+    fun obter(): String? {
+        return token
+    }
+
+    fun limpar() {
         token = null
     }
 }
