@@ -9,4 +9,4 @@ class TurmaProfessorDto (
     val diasSemana: List<String>,
     val horarioInicio: String,
     val horarioFim: String
-)23
+)
