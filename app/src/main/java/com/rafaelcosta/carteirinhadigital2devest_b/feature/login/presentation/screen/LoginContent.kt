@@ -73,7 +73,7 @@ fun LoginContent(
         }
         Button(
             onClick = {
-               onEvent(LoginEvent.OnEntrarClick)
+                onEvent(LoginEvent.OnEntrarClick)
             },
             enabled = !uiState.isLoading,
             shape = RoundedCornerShape(size = 4.dp),
@@ -108,7 +108,7 @@ fun LoginContent(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun LoginContentPreview() {
-    CarteirinhaDigital2DEVEST_BTheme {
+    CarteirinhaDigital2DEVEST_BTheme() {
         LoginContent(
             modifier = Modifier.fillMaxSize(),
             uiState = LoginUiState(

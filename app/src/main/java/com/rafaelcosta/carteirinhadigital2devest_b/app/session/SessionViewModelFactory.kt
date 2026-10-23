@@ -2,7 +2,7 @@ package com.rafaelcosta.carteirinhadigital2devest_b.app.session
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.rafaelcosta.carteirinhadigital2devest.core.auth.SessionTokenStore
+import com.rafaelcosta.carteirinhadigital2devest_b.core.auth.SessionTokenStore
 
 class SessionViewModelFactory(
     private val sessionTokenStore : SessionTokenStore

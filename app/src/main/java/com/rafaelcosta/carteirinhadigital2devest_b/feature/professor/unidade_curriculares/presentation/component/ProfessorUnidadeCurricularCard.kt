@@ -1,0 +1,4 @@
+package com.rafaelcosta.carteirinhadigital2devest_b.feature.professor.unidade_curriculares.presentation.component
+
+class ProfessorUnidadeCurricularCard {
+}

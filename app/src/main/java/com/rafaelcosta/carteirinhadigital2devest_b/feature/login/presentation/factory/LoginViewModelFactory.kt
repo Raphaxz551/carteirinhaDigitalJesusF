@@ -1,4 +1,4 @@
-package com.rafaelcosta.carteirinhadigital2devest.feature.login.presentation.factory
+package com.rafaelcosta.carteirinhadigital2devest_b.feature.login.presentation.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
