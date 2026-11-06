@@ -19,7 +19,6 @@ import com.rafaelcosta.carteirinhadigital2devest_b.core.designsystem.theme.Carte
 import com.rafaelcosta.carteirinhadigital2devest_b.feature.login.domain.model.PerfilAcesso
 import com.rafaelcosta.carteirinhadigital2devest_b.feature.login.domain.model.UsuarioLogado
 
-
 @Composable
 fun HomeProfessorScreen(
     usuarioLogado: UsuarioLogado,
@@ -82,7 +81,7 @@ fun HomeProfessorScreen(
 @Preview(showBackground = true)
 @Composable
 private fun HomeProfessorPreview() {
-    CarteirinhaDigital2DEVEST_BTheme {
+    CarteirinhaDigital2DEVEST_BTheme() {
         HomeProfessorScreen(
             usuarioLogado = UsuarioLogado(
                 id = "2",

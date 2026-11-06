@@ -1,4 +1,0 @@
-package com.rafaelcosta.carteirinhadigital2devest_b.feature.professor.unidade_curriculares.domain.repository
-
-class ProfessorUnidadeCurricularRepository {
-}
