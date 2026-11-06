@@ -1,7 +1,7 @@
 package com.rafaelcosta.carteirinhadigital2devest_b.feature.professor.turmas.domain.model
 
 data class Turma(
-    val id: Int,
+    val id: String,
     val codigo: String,
     val curso: String,
     val semestre: String,
