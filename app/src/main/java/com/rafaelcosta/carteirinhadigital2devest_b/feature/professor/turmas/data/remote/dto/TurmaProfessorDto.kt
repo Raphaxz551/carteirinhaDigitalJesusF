@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class TurmaProfessorDto(
-    val id: Int,
+    val id: String,
     val codigo: String,
     val curso: String,
     val semestre: String,
